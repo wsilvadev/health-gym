@@ -1,11 +1,12 @@
 {
-  "name": "nest-prisma-delivery",
+  "name": "health-gym-server",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Jardel Bordignon",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prebuild": "rm -rf ./dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -18,7 +19,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./jest.e2e.config.ts",
-    "dev": "rm -rf ./dist && nest start --watch",
+    "dev": "yarn prebuild && yarn start:dev",
     "db": "prisma migrate dev",
     "db:studio": "prisma studio"
   },
