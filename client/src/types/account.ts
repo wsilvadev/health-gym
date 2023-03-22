@@ -12,7 +12,7 @@ export type SignInInput = ForgotPasswordInput & {
 
 export type SignUpInput = SignInInput & {
   name: string,
-  password_confirmation: string
+  password_confirmation?: string
 }
 
 export type EditProfileInput = EditObjectType<SignUpInput> & {

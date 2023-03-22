@@ -27,9 +27,7 @@ export function SignInTemplate(): JSX.Element {
 
   const submit = handleSubmit(async ({ email, password }: SignInInput) => {
     try {
-      const res = await accountApi.login({ email, password })
-      console.log('res', res)
-      const { tokens, user } = res
+      const { tokens, user } = await accountApi.login({ email, password })
       setAuthentication({ tokens, user })
     } catch (err) {
       toast.show({

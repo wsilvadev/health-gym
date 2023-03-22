@@ -79,7 +79,13 @@ export async function SetupApi() {
       }
 
       // se for um erro direfente de 401 então será tratado no retorno
-      return Promise.reject(error.toJSON())
+      //return Promise.reject(error.data.message.toJSON())
+      return Promise.reject(error.response)
+
+      // get error messages
+      // .catch(err => {
+      //   let errorMsgs = ''
+      //   err.data.message.forEach((e: any) => (errorMsgs += e))
     }
   )
 

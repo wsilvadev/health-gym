@@ -1,7 +1,6 @@
-import { Center, Heading, Text, View } from 'native-base'
-import { useSetRecoilState } from 'recoil'
+import { Center, Heading, Text, View, useToast } from 'native-base'
 
-import { authentication } from 'src/atoms'
+import { accountApi } from 'src/api'
 import { ZodType, useForm, useLocales } from 'src/hooks'
 import { useNavigate } from 'src/router'
 import { SignUpInput } from 'src/types/account'
@@ -11,8 +10,8 @@ import { AccountContainer } from '../container'
 
 export function SignUpTemplate(): JSX.Element {
   const { t } = useLocales()
-  const setAuthentication = useSetRecoilState(authentication)
   const navTo = useNavigate()
+  const toast = useToast()
 
   const { btnControl, handleSubmit, register } = useForm<SignUpInput>({
     defaultValues: { email: '', name: '', password: '', password_confirmation: '' },
@@ -35,17 +34,23 @@ export function SignUpTemplate(): JSX.Element {
         }),
   })
 
-  const submit = handleSubmit(async ({ email, password }: SignUpInput) => {
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setAuthentication({
-      tokens: { access_token: 'access_token', refresh_token: 'refresh_token' },
-      user: {
-        email,
-        password,
-        permissions: ['edit.user', 'metrics.list'],
-        roles: ['user'],
-      },
-    })
+  const submit = handleSubmit(async ({ email, name, password }: SignUpInput) => {
+    accountApi
+      .register({ email, name, password })
+      .then(() => navTo('sign-in'))
+      .catch(err => {
+        let errorMsgs = ''
+        err.data.message.forEach((e: any) => (errorMsgs += `${e}\n`))
+
+        toast.show({
+          bg: 'gray.600',
+          description: `${errorMsgs}`,
+          duration: 5000,
+          maxW: 500,
+          placement: 'top',
+          title: 'Register',
+        })
+      })
   })
 
   return (
