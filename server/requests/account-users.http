@@ -1,0 +1,62 @@
+GET http://localhost:3001/users
+
+###
+POST http://localhost:3001/users
+content-type: application/json
+
+{
+  "name": "Jardel",
+  "email": "jardel@email.com",
+  "password": "Pwd123!",
+  "roles": ["CLIENT"],
+  "permissions": ["user.create", "user.update"]
+}
+
+###
+PATCH http://localhost:3001/users
+content-type: application/json
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NzI4YWQ2ZC1hZDVhLTRkODMtODZhYy00OTk3MjIyOTM2NDEiLCJpYXQiOjE2NzEzNTgwMTksImV4cCI6MTY3MTQ0NDQxOX0.UAFngyY6shT1lKI8vud8DINBRWqheY66m7ikLF82XDQ
+
+{
+  "email": "jardel@email.com.br",
+  "currentPassword": "Pwd123!"
+}
+
+
+###
+// List user addresses
+GET http://localhost:3001/users/addresses
+
+###
+// Add address
+POST http://localhost:3001/users/addresses
+content-type: application/json
+
+{
+  "type": "shipping",
+  "full_name": "John Doe",
+  "phone": "(54) 9 9123-4567",
+  "postal_code": "99500-000",
+  "country": "Brasil",
+  "state": "RS",
+  "city": "Carazinho",
+  "neighborhood": "Conceição",
+  "street": "Rua Parecis",
+  "number": "320",
+  "complement": "Em frente a VM Pneus"
+}
+
+###
+// Update address
+PATCH http://localhost:3001/users/addresses
+content-type: application/json
+
+{
+  "id": "ecd05cd8-46b4-4df7-8c98-39f0d5c4f66f",
+  "full_name": "Jardel Bordignon"
+}
+
+
+###
+// Delete address
+DELETE http://localhost:3001/users/addresses/ecd05cd8-46b4-4df7-8c98-39f0d5c4f66f

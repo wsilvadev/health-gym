@@ -1,0 +1,69 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s;
+}
+a:hover {
+  filter: brightness(0.8);
+}
+
+button,
+div[role='button'] {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+button:hover,
+div[role='button']:hover {
+  filter: brightness(0.8);
+}
+
+input {
+  outline: none;
+}
+
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 8px;
+  background: #18181b;
+}
+/* 
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+} */
+
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+@font-face {
+  font-family: 'MaterialCommunityIcons';
+  src: url('/public/fonts/MaterialCommunityIcons.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/public/fonts/FontAwesome.ttf') format('truetype');
+}

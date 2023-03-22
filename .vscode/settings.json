@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.insertFinalNewline": true,
+    "source.formatDocument": true,
+    "source.fixAll.eslint": true
+  },
+  "material-icon-theme.activeIconPack": "nest",
+  "material-icon-theme.files.associations": {
+    "*.dto.ts": "Nest-resolver",
+    "*.repository.ts": "Database"
+  },
+  "material-icon-theme.folders.associations": {
+    "requests": "Connection",
+    "infra": "Tools",
+    "account": "Secure",
+    "repository": "Database"
+  }
+}
