@@ -1,5 +1,5 @@
 import envFilePlugin from 'esbuild-envfile-plugin'
-import babel from 'esbuild-plugin-babel'
+//import babel from 'esbuild-plugin-babel'
 import svgr from 'esbuild-plugin-svgr'
 
 export default {
@@ -19,10 +19,10 @@ export default {
   plugins: [
     envFilePlugin,
     svgr(),
-    babel({
-      configFile: './babel.config.js',
-      filter: /.\/src\/*/,
-    }),
+    // babel({
+    //   configFile: './babel.config.js',
+    //   filter: /.\/src\/*/,
+    // }),
   ],
   resolveExtensions: [
     '.web.tsx',
