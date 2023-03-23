@@ -6,6 +6,7 @@ import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper
 import backgroundImg from 'src/assets/background.png'
 import LogoSvg from 'src/assets/logo.svg'
 import { useLocales } from 'src/hooks'
+import { LocaleName } from 'src/locales'
 import { Select } from 'src/views/components'
 import { Fade, Translate } from 'src/views/components/animations'
 
@@ -25,11 +26,14 @@ export function AccountContainer({ children, message }: Props): JSX.Element {
     { label: 'Español', value: 'es' },
     { label: 'Português', value: 'pt' },
   ]
+
+  const image = isWeb ? { uri: '/public/background.png' } : backgroundImg
+
   return (
     <View h="full">
       <Image
-        source={backgroundImg}
-        defaultSource={backgroundImg}
+        source={image}
+        defaultSource={image}
         alt="Pessoas treinando"
         position="absolute"
         minW="100%"
@@ -50,7 +54,7 @@ export function AccountContainer({ children, message }: Props): JSX.Element {
                 ? languages.find(({ value }) => value === localeName)
                 : undefined
             }
-            onSelectItem={({ value }) => setLocaleName(value)}
+            onSelectItem={({ value }) => setLocaleName(value as LocaleName)}
           />
         </HStack>
         <RandomAnimation

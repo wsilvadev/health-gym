@@ -1,5 +1,3 @@
-//import fs from 'node:fs'
-
 import envFilePlugin from 'esbuild-envfile-plugin'
 import babel from 'esbuild-plugin-babel'
 import svgr from 'esbuild-plugin-svgr'
@@ -11,9 +9,9 @@ export default {
   format: 'cjs',
   jsx: 'automatic',
   loader: {
+    '.jpg': 'file',
     '.js': 'jsx',
-    '.png': 'dataurl',
-    '.svg': 'dataurl',
+    '.png': 'file',
     '.ttf': 'file',
   },
   outfile: 'build/web.js',
@@ -21,7 +19,6 @@ export default {
   plugins: [
     envFilePlugin,
     svgr(),
-    //nodeExternalsPlugin(),
     babel({
       configFile: './babel.config.js',
       filter: /.\/src\/*/,
@@ -37,6 +34,6 @@ export default {
     '.jsx',
     '.js',
   ],
-  target: ['es6', 'chrome58', 'firefox57', 'safari11'],
+  target: ['es6'],
   tsconfig: 'tsconfig.web.json',
 }
