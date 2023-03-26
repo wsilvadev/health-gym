@@ -1,7 +1,7 @@
-import { DEV_API_URL } from 'env'
+import dotenv from './dotenv'
 
 export default {
-  apiUrl: DEV_API_URL,
+  apiUrl: dotenv.APP_DEV_API,
   debugMode: true,
   name: 'dev',
   useMocks: false,

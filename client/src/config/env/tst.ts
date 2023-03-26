@@ -1,7 +1,7 @@
-import { TST_API_URL } from 'env'
+import dotenv from './dotenv'
 
 export default {
-  apiUrl: TST_API_URL,
+  apiUrl: dotenv.APP_TST_API,
   debugMode: true,
   name: 'tst',
   useMocks: false,

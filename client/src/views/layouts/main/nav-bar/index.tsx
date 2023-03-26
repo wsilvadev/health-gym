@@ -17,7 +17,7 @@ const items: ItemProps[] = [
   { icon: 'home-outline', label: 'Home', route: '/' },
   { icon: 'history', label: 'History', route: '/history' },
   { icon: 'account-circle-outline', label: 'Profile', route: '/profile' },
-  { icon: 'post-outline', label: 'Blog', route: '/blog' },
+  // { icon: 'post-outline', label: 'Blog', route: '/blog' },
 ]
 
 export function NavBar({ isLargeScreen }: Props): JSX.Element {

@@ -60,10 +60,10 @@ input[type='password']::-ms-clear {
 
 @font-face {
   font-family: 'MaterialCommunityIcons';
-  src: url('/public/fonts/MaterialCommunityIcons.ttf') format('truetype');
+  src: url('/fonts/MaterialCommunityIcons.ttf') format('truetype');
 }
 
-@font-face {
+/* @font-face {
   font-family: 'FontAwesome';
-  src: url('/public/fonts/FontAwesome.ttf') format('truetype');
-}
+  src: url('/fonts/FontAwesome.ttf') format('truetype');
+} */

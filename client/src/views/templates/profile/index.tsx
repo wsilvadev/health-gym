@@ -24,7 +24,7 @@ import {
 export function ProfileTemplate(): JSX.Element {
   const { t } = useLocales()
   const [loadingPhoto, setLoadingPhoto] = useState(false)
-  const [userPhotoUri, setUserPhotoUri] = useState('')
+  const [userPhotoUri, setUserPhotoUri] = useState<string | undefined>(undefined)
 
   // const maxFileSize = 500000
   // const acceptedImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']

@@ -7,7 +7,7 @@ module.exports = {
         allowlist: null,
         blocklist: null,
         envName: 'APP_ENV',
-        moduleName: 'env',
+        moduleName: 'rn-dotenv',
         path: '.env',
         safe: false,
         verbose: false,
@@ -15,4 +15,4 @@ module.exports = {
     ],
   ],
   presets: ['module:metro-react-native-babel-preset'],
-}
+};

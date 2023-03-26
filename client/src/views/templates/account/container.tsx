@@ -1,3 +1,4 @@
+import React from 'react'
 import { Center, HStack, Image, ScrollView, Text, View } from 'native-base'
 import { ReactNode, useState } from 'react'
 import { Platform } from 'react-native'
@@ -27,7 +28,7 @@ export function AccountContainer({ children, message }: Props): JSX.Element {
     { label: 'Português', value: 'pt' },
   ]
 
-  const image = isWeb ? { uri: '/public/background.png' } : backgroundImg
+  const image = isWeb ? { uri: '/background.png' } : backgroundImg
 
   return (
     <View h="full">

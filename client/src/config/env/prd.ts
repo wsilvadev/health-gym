@@ -1,7 +1,7 @@
-import { PRD_API_URL } from 'env'
+import dotenv from './dotenv'
 
 export default {
-  apiUrl: PRD_API_URL,
+  apiUrl: dotenv.APP_PRD_API,
   debugMode: true,
   name: 'prd',
   useMocks: false,
