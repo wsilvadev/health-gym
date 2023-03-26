@@ -1,9 +1,9 @@
-import { Control, Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues } from 'react-hook-form'
 
 import { TextInput, TextInputProps } from './text-input'
 
 type InputProps = TextInputProps & {
-  control: Control<any, any>
+  control: Control<FieldValues, Object>
   name: string
 }
 
