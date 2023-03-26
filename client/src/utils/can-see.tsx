@@ -1,15 +1,16 @@
 import { ReactNode } from 'react'
 
 import { useAuthorization } from 'src/hooks/use-authorization'
+import { Role } from 'src/types/user'
 
 type Props = {
   children: ReactNode
-  errorReturn?: any
+  errorReturn?: undefined
   needAll?: boolean
   needAllPermissions?: boolean
   needAllRoles?: boolean
   permissions?: string[]
-  roles?: string[]
+  roles?: Role[]
 }
 
 export function CanSee(props: Props) {

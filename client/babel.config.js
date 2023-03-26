@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    ['@babel/plugin-proposal-private-methods', { loose: true }],
     [
       'module:react-native-dotenv',
       {
@@ -15,4 +16,4 @@ module.exports = {
     ],
   ],
   presets: ['module:metro-react-native-babel-preset'],
-};
+}

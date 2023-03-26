@@ -38,7 +38,7 @@ export function SignUpTemplate(): JSX.Element {
     accountApi
       .register({ email, name, password })
       .then(() => navTo('sign-in'))
-      .catch(err => {
+      .catch((err: any) => {
         let errorMsgs = ''
         err.data.message.forEach((e: any) => (errorMsgs += `${e}\n`))
 

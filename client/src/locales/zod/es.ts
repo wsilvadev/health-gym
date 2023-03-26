@@ -63,7 +63,7 @@ export const es: ZodErrorMap = (
         } else if ('endsWith' in issue.validation) {
           message = `debe terminar con "${issue.validation.endsWith}"`
         } else {
-          util.assertNever(issue.validation)
+          util.assertNever(issue.validation as never)
         }
       } else if (issue.validation !== 'regex') {
         message = `${capitalized(issue.validation)} no válido`
@@ -95,7 +95,7 @@ export const es: ZodErrorMap = (
             : issue.inclusive
             ? 'mayor o igual a '
             : 'mayor qué '
-        }${new Date(issue.minimum)}`
+        }${new Date(issue.minimum as never)}`
       } else {
         message = 'Entrada inválida'
       }
@@ -116,7 +116,7 @@ export const es: ZodErrorMap = (
       } else if (issue.type === 'date') {
         message = `Debe ser ${
           issue.exact ? '' : issue.inclusive ? 'menos o igual a ' : 'menos que '
-        } ${new Date(issue.maximum)}`
+        } ${new Date(issue.maximum as never)}`
       } else {
         message = 'Entrada inválida'
       }

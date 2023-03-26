@@ -1,9 +1,9 @@
-import {resolve} from 'path';
+import {resolve} from 'path'
 
-import {defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-import svgr from 'vite-plugin-svgr';
-import {esbuildCommonjs, viteCommonjs} from '@originjs/vite-plugin-commonjs';
+import {esbuildCommonjs, viteCommonjs} from '@originjs/vite-plugin-commonjs'
+import react from '@vitejs/plugin-react-swc'
+import {defineConfig, loadEnv } from 'vite'
+import svgr from 'vite-plugin-svgr'
 
 const extensions = [
   ".web.tsx",
@@ -16,7 +16,7 @@ const extensions = [
   ".js",
   ".css",
   ".json",
-];
+]
 
 const compileNodeModules = [
   // Add every react-native package that needs compiling
@@ -26,38 +26,38 @@ const compileNodeModules = [
 
 export default ({ mode }: { mode: string }) => {
   // Load app-level env vars to node-level env vars.
-  process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+  process.env = {...process.env, ...loadEnv(mode, process.cwd())}
   
   return defineConfig({
-    define: {
-      global: 'window',
-    },
-    envPrefix: 'APP_',
-    plugins: [viteCommonjs(), react(), svgr({ exportAsDefault: true })],
-    optimizeDeps: {
-      include: [...compileNodeModules],
-      esbuildOptions: {
-        resolveExtensions: extensions,
-        plugins: [
-          esbuildCommonjs([
-            'react-native-vector-icons',
-          ]),
-        ],
-        loader: {'.js': 'jsx'},
-      },
-    },
-    resolve: {
-      extensions,
-      alias: {
-        'react-native': 'react-native-web',
-        'react-native-svg': 'react-native-web-svg',
-        src: resolve(__dirname, 'src'),
-      },
-    },
     build: {
       commonjsOptions: {
         transformMixedEsModules: true,
       },
     },
-  });
+    define: {
+      global: 'window',
+    },
+    envPrefix: 'APP_',
+    optimizeDeps: {
+      esbuildOptions: {
+        loader: {'.js': 'jsx'},
+        plugins: [
+          esbuildCommonjs([
+            'react-native-vector-icons',
+          ]),
+        ],
+        resolveExtensions: extensions,
+      },
+      include: [...compileNodeModules],
+    },
+    plugins: [viteCommonjs(), react(), svgr({ exportAsDefault: true })],
+    resolve: {
+      alias: {
+        'react-native': 'react-native-web',
+        'react-native-svg': 'react-native-web-svg',
+        src: resolve(__dirname, 'src'),
+      },
+      extensions,
+    },
+  })
 }

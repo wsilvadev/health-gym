@@ -1,5 +1,5 @@
-import React from 'react'
 import { Center, HStack, Image, ScrollView, Text, View } from 'native-base'
+import React from 'react'
 import { ReactNode, useState } from 'react'
 import { Platform } from 'react-native'
 import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper'

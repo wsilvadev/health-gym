@@ -1,6 +1,7 @@
 import { useRecoilValue } from 'recoil'
 
 import { authentication } from 'src/atoms'
+import { Role } from 'src/types/user'
 import { pluralize, replaceLastComa } from 'src/utils/text-formatters'
 
 type Props = {
@@ -8,14 +9,14 @@ type Props = {
   needAllPermissions?: boolean
   needAllRoles?: boolean
   permissions?: string[]
-  roles?: string[]
+  roles?: Role[]
   unauthorizedMessage?: boolean
 }
 
 const unauthorizedMsg = (
   rolesCondition: 'every' | 'some',
   permissionsCondition: 'every' | 'some',
-  neededRoles: string[],
+  neededRoles: Role[],
   neededPermissions: string[]
 ) => {
   let msg = 'You need'
@@ -67,7 +68,7 @@ export function useAuthorization(props: Props) {
     const rolesCondition = needAll || needAllRoles ? 'every' : 'some'
     const permissionsCondition = needAll || needAllPermissions ? 'every' : 'some'
 
-    let neededRoles: string[] = []
+    let neededRoles: Role[] = []
     let neededPermissions: string[] = []
 
     if (roles && roles.length) {

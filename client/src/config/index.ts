@@ -1,6 +1,5 @@
-import dotenv from './env/dotenv'
-
 import dev from './env/dev'
+import dotenv from './env/dotenv'
 import prd from './env/prd'
 import tst from './env/tst'
 

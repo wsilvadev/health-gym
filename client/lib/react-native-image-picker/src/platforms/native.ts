@@ -1,33 +1,33 @@
-import {NativeModules} from 'react-native';
+import {NativeModules} from 'react-native'
 
 import {
+  Callback,
   CameraOptions,
   ImageLibraryOptions,
-  Callback,
   ImagePickerResponse,
-} from '../types';
+} from '../types'
 
 const DEFAULT_OPTIONS: ImageLibraryOptions & CameraOptions = {
-  mediaType: 'photo',
-  videoQuality: 'high',
-  quality: 1,
-  maxWidth: 0,
-  maxHeight: 0,
-  includeBase64: false,
   cameraType: 'back',
-  selectionLimit: 1,
-  saveToPhotos: false,
   durationLimit: 0,
+  includeBase64: false,
   includeExtra: false,
+  maxHeight: 0,
+  maxWidth: 0,
+  mediaType: 'photo',
   presentationStyle: 'pageSheet',
-};
+  quality: 1,
+  saveToPhotos: false,
+  selectionLimit: 1,
+  videoQuality: 'high',
+}
 
 // @ts-ignore We want to check whether __turboModuleProxy exitst, it may not
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
+const isTurboModuleEnabled = global.__turboModuleProxy != null
 
 const nativeImagePicler = isTurboModuleEnabled ?
   require("./NativeImagePicker").default :
-  NativeModules.ImagePicker;
+  NativeModules.ImagePicker
 
 export function camera(
   options: CameraOptions,
@@ -37,11 +37,11 @@ export function camera(
     nativeImagePicler.launchCamera(
       {...DEFAULT_OPTIONS, ...options},
       (result: ImagePickerResponse) => {
-        if (callback) callback(result);
-        resolve(result);
+        if (callback) callback(result)
+        resolve(result)
       },
-    );
-  });
+    )
+  })
 }
 
 export function imageLibrary(
@@ -52,9 +52,9 @@ export function imageLibrary(
     nativeImagePicler.launchImageLibrary(
       {...DEFAULT_OPTIONS, ...options},
       (result: ImagePickerResponse) => {
-        if (callback) callback(result);
-        resolve(result);
+        if (callback) callback(result)
+        resolve(result)
       },
-    );
-  });
+    )
+  })
 }

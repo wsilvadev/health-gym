@@ -1,5 +1,5 @@
-import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport';
-import { TurboModuleRegistry } from 'react-native';
+import { TurboModuleRegistry } from 'react-native'
+import type { TurboModule } from 'react-native/Libraries/TurboModule/RCTExport'
 
 export interface Spec extends TurboModule {
   launchCamera(options: Object, callback: () => void): void;
@@ -7,4 +7,4 @@ export interface Spec extends TurboModule {
 }
 export default TurboModuleRegistry.get<Spec>(
   'ImagePicker'
-);
+)

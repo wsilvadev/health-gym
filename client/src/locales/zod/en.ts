@@ -58,7 +58,7 @@ export const en: ZodErrorMap = (
         } else if ('endsWith' in issue.validation) {
           message = `Invalid input: must end with "${issue.validation.endsWith}"`
         } else {
-          util.assertNever(issue.validation)
+          util.assertNever(issue.validation as never)
         }
       } else if (issue.validation !== 'regex') {
         message = `Invalid ${issue.validation}`
@@ -90,7 +90,7 @@ export const en: ZodErrorMap = (
             : issue.inclusive
             ? 'greater than or equal to '
             : 'greater than '
-        }${new Date(issue.minimum)}`
+        }${new Date(issue.minimum as never)}`
       } else {
         message = 'Invalid input'
       }
@@ -119,7 +119,7 @@ export const en: ZodErrorMap = (
             : issue.inclusive
             ? 'smaller than or equal to'
             : 'smaller than'
-        } ${new Date(issue.maximum)}`
+        } ${new Date(issue.maximum as never)}`
       } else {
         message = 'Invalid input'
       }

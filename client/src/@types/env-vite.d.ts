@@ -2,4 +2,4 @@
 
 import { DotEnv } from 'src/config/env/dotenv/type'
 
-interface ImportMetaEnv extends DotEnv {}
+type ImportMetaEnv = DotEnv
