@@ -21,7 +21,7 @@ const extensions = [
 const compileNodeModules = [
   // Add every react-native package that needs compiling
   // 'react-native-gesture-handler',
-  // 'react-native-vector-icons',
+  'react-native-vector-icons',
 ].map(moduleName => resolve(__dirname, 'node_modules', moduleName))
 
 export default ({ mode }: { mode: string }) => {
