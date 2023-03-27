@@ -4,7 +4,6 @@ import { ReactNode, useState } from 'react'
 import { Platform } from 'react-native'
 import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper'
 
-import backgroundImg from 'src/assets/background.png'
 import LogoSvg from 'src/assets/logo.svg'
 import { useLocales } from 'src/hooks'
 import { LocaleName } from 'src/locales'
@@ -28,7 +27,9 @@ export function AccountContainer({ children, message }: Props): JSX.Element {
     { label: 'Português', value: 'pt' },
   ]
 
-  const image = isWeb ? { uri: '/background.png' } : backgroundImg
+  const image = isWeb
+    ? { uri: '/background.png' }
+    : require('src/assets/background.png')
 
   return (
     <View h="full">
