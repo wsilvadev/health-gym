@@ -3,7 +3,7 @@
   "compilerOptions": {
     "lib": ["ESNext", "DOM"],
     "baseUrl": ".",
-    "types": ["vite/client"],
+    "types": ["vite/client", "jest", "node"],
     "module": "es2020",
   }
 }

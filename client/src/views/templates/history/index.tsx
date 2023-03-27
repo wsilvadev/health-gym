@@ -1,15 +1,16 @@
 import { Center, Heading, SectionList, Text, View } from 'native-base'
 
-import { HistoryCard } from 'src/views/components/cards/history'
+import { HistoryCard, HistoryCardProps } from 'src/views/components/cards/history'
+
+type SectionData = {
+  data: HistoryCardProps[]
+  title: string
+}
 
 export function HistoryTemplate(): JSX.Element {
-  const sectionsData = [
+  const sectionsData: SectionData[] = [
     {
-      data: ['Puxada frontal', 'Remanada unilateral'],
-      title: '14.03.2023',
-    },
-    {
-      data: ['Puxada frontal'],
+      data: [{ date: 'ksjdf', description: 'teste', title: 'Puxada frontal' }],
       title: '12.03.2023',
     },
   ]
@@ -25,7 +26,7 @@ export function HistoryTemplate(): JSX.Element {
     <View flex={1}>
       <SectionList
         sections={sectionsData}
-        keyExtractor={item => item}
+        keyExtractor={item => item.title}
         renderItem={({ item }) => <HistoryCard {...item} />}
         renderSectionHeader={({ section }) => (
           <Heading color="gray.200" fontSize="md" mt="10" mb="3">

@@ -1,6 +1,16 @@
 import { HStack, Heading, Text, View } from 'native-base'
 
-export function HistoryCard(): JSX.Element {
+export type HistoryCardProps = {
+  date: string
+  description: string
+  title: string
+}
+
+export function HistoryCard({
+  date,
+  description,
+  title,
+}: HistoryCardProps): JSX.Element {
   return (
     <HStack
       w="full"
@@ -12,15 +22,15 @@ export function HistoryCard(): JSX.Element {
       alignItems="center">
       <View flex={1} mr="3">
         <Heading color="white" fontSize="md" textTransform="capitalize">
-          Costas
+          {title}
         </Heading>
         <Text color="gray.100" fontSize="lg" numberOfLines={1}>
-          Puxada
+          {description}
         </Text>
       </View>
 
       <Text color="gray.100" fontSize="md">
-        08:56
+        {date}
       </Text>
     </HStack>
   )
