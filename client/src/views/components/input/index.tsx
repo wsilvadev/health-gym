@@ -1,18 +1,27 @@
-import { Control, Controller } from 'react-hook-form'
+import { Control, Controller, FieldValues, Path } from 'react-hook-form'
 
 import { TextInput, TextInputProps } from './text-input'
 
-type InputProps = TextInputProps & {
-  control: Control<any, any>
-  name: string
+type InputProps<T extends FieldValues> = TextInputProps & {
+  control: Control<T, string>
+  name: Path<T>
 }
+
+// type InputProps<T> = TextInputProps & {
+//   control: Control<T, any>
+//   name: string
+// }
 
 // type InputProps<FV extends Record<string, any>> = TextInputProps & {
 //   control: Control<FV>
 //   name: FieldName<FV>
 // }
 
-export const Input = ({ name, control, ...rest }: InputProps): JSX.Element => {
+export function Input<T extends FieldValues>({
+  name,
+  control,
+  ...rest
+}: InputProps<T>): JSX.Element {
   return (
     <Controller
       control={control}

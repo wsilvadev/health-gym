@@ -38,9 +38,9 @@ export function SignUpTemplate(): JSX.Element {
     accountApi
       .register({ email, name, password })
       .then(() => navTo('sign-in'))
-      .catch((err: any) => {
+      .catch(err => {
         let errorMsgs = ''
-        err.data.message.forEach((e: any) => (errorMsgs += `${e}\n`))
+        err.data.message.forEach((e: never) => (errorMsgs += `${e}\n`))
 
         toast.show({
           bg: 'gray.600',

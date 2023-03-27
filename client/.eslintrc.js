@@ -13,7 +13,7 @@ module.exports = {
           { 'ts-ignore': 'allow-with-description' },
         ],
         '@typescript-eslint/ban-types': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
+        //'@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unused-vars': 'error',
         '@typescript-eslint/no-var-requires': 'off',

@@ -30,7 +30,7 @@ type ZodObj<T extends AnyObj> = {
 
 export type ZodType = typeof z
 
-export const useForm = <T extends { [key: string]: any }>({
+export const useForm = <T extends { [key: string]: string }>({
   defaultValues,
   mode = 'onBlur',
   zodSchema,
