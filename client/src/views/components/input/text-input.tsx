@@ -1,17 +1,17 @@
 import {
   FormControl,
   IInputProps,
-  Icon,
   Input,
   Pressable,
+  View,
   WarningOutlineIcon,
 } from 'native-base'
+import { Eye, EyeSlash, Icon as IconType } from 'phosphor-react-native'
 import { useState } from 'react'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export type TextInputProps = IInputProps & {
   feedback?: string
-  icon?: string
+  icon?: IconType
   isRequired?: boolean
   label?: string
   secureEntry?: boolean
@@ -19,7 +19,7 @@ export type TextInputProps = IInputProps & {
 
 export const TextInput = ({
   feedback,
-  icon,
+  icon: PhosphorIcon,
   onBlur,
   onChangeText,
   secureEntry,
@@ -29,6 +29,8 @@ export const TextInput = ({
   ...rest
 }: TextInputProps) => {
   const [show, setShow] = useState(secureEntry)
+
+  const EyeIcon = show ? Eye : EyeSlash
 
   return (
     <FormControl isInvalid={!!feedback} isRequired={isRequired} mx="0" my="1">
@@ -40,19 +42,16 @@ export const TextInput = ({
         value={value}
         type={show ? 'password' : 'text'}
         InputLeftElement={
-          icon ? (
-            <Icon as={<Icons name={icon} />} size={5} ml="2" color="muted.400" />
+          PhosphorIcon ? (
+            <View ml="2">
+              <PhosphorIcon color="#a3a3a3" />
+            </View>
           ) : undefined
         }
         InputRightElement={
           secureEntry ? (
-            <Pressable onPress={() => setShow(!show)}>
-              <Icon
-                as={<Icons name={show ? 'eye-outline' : 'eye-off-outline'} />}
-                size={5}
-                mr="2"
-                color="muted.400"
-              />
+            <Pressable onPress={() => setShow(!show)} mr="2">
+              <EyeIcon color="#a3a3a3" />
             </Pressable>
           ) : undefined
         }

@@ -1,5 +1,5 @@
-import {HStack, Icon} from 'native-base'
-import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { HStack, Icon } from 'native-base'
+import { Bell, Users } from 'phosphor-react-native'
 
 export function NotificationsNav() {
   return (
@@ -10,9 +10,9 @@ export function NotificationsNav() {
       color="gray.300"
       borderRightWidth={[0, 1]}
       borderColor="gray.700"
-    >
-      <Icon as={MaterialIcons} name="bell-outline" size="lg" mr={2} />
-      <Icon as={MaterialIcons} name="account-multiple-plus-outline" size="lg" />
+      gap="2">
+      <Icon as={Bell} size="lg" />
+      <Icon as={Users} size="lg" />
     </HStack>
   )
 }

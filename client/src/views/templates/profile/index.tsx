@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from 'native-base'
+import { EnvelopeSimple, LockKey, User } from 'phosphor-react-native'
 import { useState } from 'react'
 
 import { ZodType, useForm, useLocales } from 'src/hooks'
@@ -174,7 +175,7 @@ export function ProfileTemplate(): JSX.Element {
             {...register('name')}
             label={t('wName')}
             placeholder={t('mTypeYourName')}
-            icon="account-outline"
+            icon={User}
             bg="gray.600"
           />
 
@@ -193,7 +194,7 @@ export function ProfileTemplate(): JSX.Element {
             autoCapitalize="none"
             label={t('wCurrentPassword')}
             placeholder={t('mTypeTheCurrentPassword')}
-            icon="lock"
+            icon={LockKey}
             secureEntry
             bg="gray.600"
             isRequired
@@ -205,7 +206,7 @@ export function ProfileTemplate(): JSX.Element {
             autoCapitalize="none"
             label={t('wEmail')}
             placeholder={t('mTypeYourEmail')}
-            icon="account-outline"
+            icon={EnvelopeSimple}
             keyboardType="email-address"
             bg="gray.600"
           />
@@ -214,9 +215,9 @@ export function ProfileTemplate(): JSX.Element {
             {...register('password')}
             autoCorrect={false}
             autoCapitalize="none"
-            label={t('wPassword')}
-            placeholder={t('mTypeYourPassword')}
-            icon="lock"
+            label={t('wNewPassword')}
+            placeholder={t('mTypeYourNewPassword')}
+            icon={LockKey}
             secureEntry
             bg="gray.600"
           />
@@ -227,7 +228,7 @@ export function ProfileTemplate(): JSX.Element {
             autoCapitalize="none"
             label={t('wPasswordConfirmation')}
             placeholder={t('mTypeYourPasswordConfirmation')}
-            icon="lock"
+            icon={LockKey}
             secureEntry
             bg="gray.600"
           />

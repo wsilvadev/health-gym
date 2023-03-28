@@ -1,3 +1,5 @@
+import { Gear, Users } from 'phosphor-react-native'
+
 import { useLocales } from 'src/hooks/use-locales'
 
 import { NavLanguageSelector } from './nav-language-selector'
@@ -10,10 +12,10 @@ export function SidebarNav() {
   return (
     <>
       <NavSection title={t('wGeneral')}>
-        <NavLink icon="cog-outline" to="/">
+        <NavLink icon={Gear} to="/">
           Dashboard
         </NavLink>
-        <NavLink icon="account-multiple-outline" to="/users">
+        <NavLink icon={Users} to="/users">
           Usuários
         </NavLink>
       </NavSection>
@@ -23,10 +25,10 @@ export function SidebarNav() {
       </NavSection>
 
       <NavSection title={t('wGeneral')}>
-        <NavLink icon="cog-outline" to="/">
+        <NavLink icon={Gear} to="/">
           Dashboard
         </NavLink>
-        <NavLink icon="account-multiple-outline" to="/users">
+        <NavLink icon={Users} to="/users">
           Usuários
         </NavLink>
       </NavSection>

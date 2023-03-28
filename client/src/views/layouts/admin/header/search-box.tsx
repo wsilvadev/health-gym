@@ -1,5 +1,5 @@
-import {Flex, Icon, Input} from 'native-base'
-import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { Flex, Icon, Input } from 'native-base'
+import { MagnifyingGlass } from 'phosphor-react-native'
 
 export function SearchBox() {
   return (
@@ -15,8 +15,7 @@ export function SearchBox() {
       position="relative"
       bg="gray.800"
       borderRadius="lg"
-      alignItems="center"
-    >
+      alignItems="center">
       <Input
         flex={1}
         color="gray.50"
@@ -27,7 +26,7 @@ export function SearchBox() {
         fontSize={16}
       />
 
-      <Icon as={MaterialIcons} name="magnify" color="gray.100" size="lg" />
+      <Icon as={MagnifyingGlass} color="gray.100" size="lg" />
     </Flex>
   )
 }

@@ -16,10 +16,10 @@
     onSelect={({ value }) => setLocaleName(value as LocaleName)}
   />
 */
-import { Box, Button, FlatList, Text } from 'native-base'
+import { Box, Button, FlatList, Icon, Text } from 'native-base'
+import { CaretDown, CaretUp } from 'phosphor-react-native'
 import { useState } from 'react'
 import { ListRenderItemInfo } from 'react-native'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 type Item = {
   label: string
@@ -69,11 +69,7 @@ export function Select({
           <Text mr="2" color="gray.200">
             {selectedItem ? selectedItem.label : label}
           </Text>
-          <Icons
-            name={`chevron-${listVisible ? 'up' : 'down'}`}
-            size={20}
-            color="#f3f3f3"
-          />
+          <Icon as={listVisible ? CaretUp : CaretDown} size="sm" color="gray.100" />
         </Box>
       </Button>
 

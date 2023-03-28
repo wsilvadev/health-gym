@@ -1,4 +1,5 @@
 import { Center, Heading, Text, View, useToast } from 'native-base'
+import { EnvelopeSimple, LockKey } from 'phosphor-react-native'
 import { useSetRecoilState } from 'recoil'
 
 import { accountApi } from 'src/api'
@@ -51,7 +52,7 @@ export function SignInTemplate(): JSX.Element {
           autoCapitalize="none"
           label={t('wEmail')}
           placeholder={t('mTypeYourEmail')}
-          icon="account-outline"
+          icon={EnvelopeSimple}
           keyboardType="email-address"
         />
 
@@ -61,7 +62,7 @@ export function SignInTemplate(): JSX.Element {
           autoCapitalize="none"
           label={t('wPassword')}
           placeholder={t('mTypeYourPassword')}
-          icon="lock"
+          icon={LockKey}
           secureEntry
         />
 

@@ -1,6 +1,6 @@
 import { Box, IconButton, useBreakpointValue } from 'native-base'
+import { HouseLine } from 'phosphor-react-native'
 import { Modal } from 'react-native'
-import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useRecoilState } from 'recoil'
 
 import { sidebarVisible } from 'src/atoms'
@@ -26,10 +26,7 @@ export function Sidebar() {
             rounded="lg"
             colorScheme="orange"
             variant="ghost"
-            _icon={{
-              as: MaterialIcons,
-              name: 'home',
-            }}
+            _icon={{ as: HouseLine }}
             onPress={onClose}
           />
           <SidebarNav />

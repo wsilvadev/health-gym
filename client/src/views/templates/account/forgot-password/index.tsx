@@ -1,4 +1,5 @@
 import { Center, Heading, Text, View } from 'native-base'
+import { EnvelopeSimple } from 'phosphor-react-native'
 
 import { ZodType, useForm, useLocales } from 'src/hooks'
 import { useNavigate } from 'src/router'
@@ -39,7 +40,7 @@ export function ForgotPasswordTemplate(): JSX.Element {
           autoCapitalize="none"
           label={t('wEmail')}
           placeholder={t('mTypeYourEmail')}
-          icon="account-outline"
+          icon={EnvelopeSimple}
           keyboardType="email-address"
         />
 

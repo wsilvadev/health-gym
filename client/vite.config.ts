@@ -21,7 +21,7 @@ const extensions = [
 const compileNodeModules = [
   // Add every react-native package that needs compiling
   // 'react-native-gesture-handler',
-  'react-native-vector-icons',
+  //'phosphor-react-native',
 ].map(moduleName => resolve(__dirname, 'node_modules', moduleName))
 
 export default ({ mode }: { mode: string }) => {
@@ -29,7 +29,6 @@ export default ({ mode }: { mode: string }) => {
   process.env = {...process.env, ...loadEnv(mode, process.cwd())}
   
   return defineConfig({
-    assetsInclude: compileNodeModules,
     build: {
       commonjsOptions: {
         transformMixedEsModules: true,
@@ -44,7 +43,7 @@ export default ({ mode }: { mode: string }) => {
         loader: {'.js': 'jsx'},
         plugins: [
           esbuildCommonjs([
-            'react-native-vector-icons',
+            // 'react-native-vector-icons',
           ]),
         ],
         resolveExtensions: extensions,
@@ -54,6 +53,7 @@ export default ({ mode }: { mode: string }) => {
     plugins: [viteCommonjs(), react(), svgr({ exportAsDefault: true })],
     resolve: {
       alias: {
+        'phosphor-react-native': 'phosphor-react',
         'react-native': 'react-native-web',
         'react-native-svg': 'react-native-web-svg',
         src: resolve(__dirname, 'src'),

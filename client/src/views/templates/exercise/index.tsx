@@ -10,8 +10,13 @@ import {
   VStack,
   View,
 } from 'native-base'
+import {
+  Barbell,
+  CaretLeft,
+  ClockCounterClockwise,
+  PersonSimpleRun,
+} from 'phosphor-react-native'
 import { Platform } from 'react-native'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { useNavigate } from 'src/router'
 import { Button } from 'src/views/components'
@@ -24,7 +29,7 @@ export function ExerciseTemplate(): JSX.Element {
     <View flex={1}>
       <HStack alignItems="center" justifyContent="space-between" p={['4', '8']}>
         <Pressable onPress={() => goTo('../')}>
-          <Icon as={Icons} name="chevron-left" color="green.500" size="xl" />
+          <Icon as={CaretLeft} name="chevron-left" color="green.500" size="xl" />
         </Pressable>
 
         <Heading fontSize={[24, 32]} color="white">
@@ -32,7 +37,7 @@ export function ExerciseTemplate(): JSX.Element {
         </Heading>
 
         <Center>
-          <Icon as={Icons} name="weight-lifter" color="gray.200" size="lg" />
+          <Icon as={PersonSimpleRun} color="gray.200" size="lg" />
           <Text color="gray.200" textTransform="capitalize">
             costas
           </Text>
@@ -54,11 +59,17 @@ export function ExerciseTemplate(): JSX.Element {
         <Box bg="gray.600" rounded="md" p="4" mt="2">
           <HStack alignItems="center" justifyContent="space-evenly" mb="4">
             <HStack alignItems="center">
-              <Icon as={Icons} name="dumbbell" color="green.500" size="xl" mr="2" />
+              <Icon as={Barbell} color="green.500" size="xl" mr="2" />
               <Text color="gray.200">3 series</Text>
             </HStack>
             <HStack alignItems="center">
-              <Icon as={Icons} name="replay" color="green.500" size="xl" mr="2" />
+              <Icon
+                as={ClockCounterClockwise}
+                name="replay"
+                color="green.500"
+                size="xl"
+                mr="2"
+              />
               <Text color="gray.200">12 repetições</Text>
             </HStack>
           </HStack>

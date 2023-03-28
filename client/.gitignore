@@ -36,6 +36,7 @@ local.properties
 
 # node.js
 #
+dist/
 coverage/
 node_modules/
 npm-debug.log

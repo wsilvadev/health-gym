@@ -1,4 +1,5 @@
 import { Center, Heading, Text, View, useToast } from 'native-base'
+import { EnvelopeSimple, LockKey, User } from 'phosphor-react-native'
 
 import { accountApi } from 'src/api'
 import { ZodType, useForm, useLocales } from 'src/hooks'
@@ -64,7 +65,7 @@ export function SignUpTemplate(): JSX.Element {
           {...register('name')}
           label={t('wName')}
           placeholder={t('mTypeYourName')}
-          icon="account-outline"
+          icon={User}
         />
 
         <Input
@@ -73,7 +74,7 @@ export function SignUpTemplate(): JSX.Element {
           autoCapitalize="none"
           label={t('wEmail')}
           placeholder={t('mTypeYourEmail')}
-          icon="account-outline"
+          icon={EnvelopeSimple}
           keyboardType="email-address"
         />
 
@@ -83,7 +84,7 @@ export function SignUpTemplate(): JSX.Element {
           autoCapitalize="none"
           label={t('wPassword')}
           placeholder={t('mTypeYourPassword')}
-          icon="lock"
+          icon={LockKey}
           secureEntry
         />
 
@@ -93,7 +94,7 @@ export function SignUpTemplate(): JSX.Element {
           autoCapitalize="none"
           label={t('wPasswordConfirmation')}
           placeholder={t('mTypeYourPasswordConfirmation')}
-          icon="lock"
+          icon={LockKey}
           secureEntry
         />
 

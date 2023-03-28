@@ -8,7 +8,7 @@ import {
   Text,
   View,
 } from 'native-base'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { CaretRight } from 'phosphor-react-native'
 
 export type ExerciseCardProps = IPressableProps & {
   description: string
@@ -44,7 +44,7 @@ export function ExerciseCard({
           </Text>
         </View>
 
-        <Icon as={Icons} name="chevron-right" color="gray.300" size="lg" />
+        <Icon as={CaretRight} color="gray.200" size="lg" />
       </HStack>
     </Pressable>
   )

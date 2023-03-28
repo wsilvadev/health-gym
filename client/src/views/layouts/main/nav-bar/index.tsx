@@ -1,10 +1,10 @@
 import { Button, HStack, Icon, Text, View } from 'native-base'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { ClockCounterClockwise, House, UserCircle } from 'phosphor-react-native'
 
 import { useLocation, useNavigate } from 'src/router'
 
 export type ItemProps = {
-  icon: string
+  icon: object
   label: string
   route: string
 }
@@ -14,9 +14,9 @@ type Props = {
 }
 
 const items: ItemProps[] = [
-  { icon: 'home-outline', label: 'Home', route: '/' },
-  { icon: 'history', label: 'History', route: '/history' },
-  { icon: 'account-circle-outline', label: 'Profile', route: '/profile' },
+  { icon: House, label: 'Home', route: '/' },
+  { icon: ClockCounterClockwise, label: 'History', route: '/history' },
+  { icon: UserCircle, label: 'Profile', route: '/profile' },
   // { icon: 'post-outline', label: 'Blog', route: '/blog' },
 ]
 
@@ -38,12 +38,7 @@ export function NavBar({ isLargeScreen }: Props): JSX.Element {
           alignItems="center"
           flexDir={isLargeScreen ? 'row' : 'column'}
           gap={isLargeScreen ? 2 : 0}>
-          <Icon
-            as={Icons}
-            name={icon}
-            size="xl"
-            color={isCurrent ? 'green.500' : 'gray.200'}
-          />
+          <Icon as={icon} size="xl" color={isCurrent ? 'green.500' : 'gray.200'} />
           <Text color={isCurrent ? 'green.500' : 'gray.200'}>{label}</Text>
         </View>
       </Button>

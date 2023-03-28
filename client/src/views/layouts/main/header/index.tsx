@@ -1,6 +1,6 @@
 import { Avatar, HStack, Heading, IconButton, Text, VStack } from 'native-base'
+import { SignOut } from 'phosphor-react-native'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useSetRecoilState } from 'recoil'
 
 import { authentication, defaultAuthenticationData } from 'src/atoms'
@@ -50,12 +50,12 @@ export function Header({ isLargeScreen }: Props): JSX.Element {
           colorScheme="gray"
           variant="ghost"
           _icon={{
-            as: Icons,
+            as: SignOut,
             color: 'gray.200',
-            name: 'logout',
             size: 'lg',
           }}
-          onPress={() => setAuthentication(defaultAuthenticationData)}></IconButton>
+          onPress={() => setAuthentication(defaultAuthenticationData)}
+        />
       </HStack>
     </VStack>
   )
