@@ -8,8 +8,8 @@ import { AuthenticationGuard } from './infra/guards'
 
 function appConfig(app: INestApplication) {
   app.enableCors({
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    origin: process.env.CORS_ORIGIN || '*',
+    // allowedHeaders: ['Content-Type', 'Authorization'],
+    // origin: process.env.CORS_ORIGIN || '*',
     // methods: ['GET', ' PUT', ' PATCH', ' POST', ' DELETE'],
   })
 
