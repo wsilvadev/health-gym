@@ -27,6 +27,7 @@ export async function SetupApi() {
   const api = axios.create({
     baseURL: env.apiUrl,
     headers,
+    withCredentials: false, // fix cors error
   })
 
   api.interceptors.response.use(
